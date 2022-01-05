@@ -1,4 +1,4 @@
-class Game {
+class Turn {
   constructor() {
   }
 
