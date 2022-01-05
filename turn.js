@@ -4,6 +4,11 @@ class Turn {
   }
 
   init(players) {
+    let seeStats = window.prompt("Press S to see the players' stats or any other key to continue.");
+    seeStats = seeStats.toUpperCase();
+    if (seeStats === "S") {
+      players.map(p => console.log(`${p.name}: ${p.hp} hp, ${p.mana} mana.`));
+    }
     let playerChoice = 0;
     let possibleActions = [1, 2];
     while (!possibleActions.includes(playerChoice)) {

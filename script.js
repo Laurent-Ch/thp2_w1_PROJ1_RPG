@@ -1,3 +1,4 @@
-generatePlayers()
+generatePlayers();
+
 new Game(players);
 
