@@ -1,11 +1,21 @@
 class Game {
   constructor(players) {
+    this.players = players;
     this.turnLeft = 10;
+
+    this.init();
+  }
+
+  init() {
+    while (this.turnLeft > 0) {
+      this.newTurn();
+    }
+    console.log('Game over.')
+
   }
 
   newTurn() {
-    // launch an instance of the turn Class
-    // turnleft -= 1;
+    new Turn(players);
+    this.turnLeft -= 1;
   }
-  // turnleft => end game
 }
