@@ -7,20 +7,22 @@ class Character {
   }
 
   dealDamage(victim) {
-    victim.takeDamage(this.dmg);
+    victim.takeDamage(this, this.dmg);
   }
 
-  takeDamage(amount) {
-    console.log(`${this.name} takes ${amount} damage.`);
+  takeDamage(attacker, amount) {
     this.hp -= amount; 
+    console.log(`${this.name} takes ${amount} damage and has ${this.hp} hp left.`);
     if (this.hp <= 0) {
       this.state = "loser";
       console.log(`${this.name} is dead.`)
+      attacker.mana += 20;
+      console.log(`${attacker.name} gains +20 mana; total: ${attacker.mana} mana.`);
     }
   }
 
-  specialAttack() {
-  }
+  // specialAttack(this, victim) {
+  // }
 }
 
 class Fighter extends Character {
