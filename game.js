@@ -5,6 +5,7 @@ import Turn from './turn.js';
 const INCREASING_DISPLAY = 11;
 
 export default class Game {
+  
   constructor() {
     this.players = [];
     this.turnLeft = 10;
@@ -15,16 +16,39 @@ export default class Game {
   generatePlayers() {
     new Display("Welcome, Hero!");
     let playingCharacterName = "Hero";
-    new Display("There are 5 available classes: \n 1. Fighter \n 2. Paladin \n 3. Monk \n 4. Berzerker \n 5. Assassin \n Choose the class you want to play with.");
+    new Display("There are 5 available classes:");
+    new Display("1. Fighter");
+    new Display("2. Paladin");
+    new Display("3. Monk");
+    new Display("4. Berzerker");
+    new Display("5. Assassin");
+    new Display("Choose your class first, then the enemy you want to challenge. When you're done, press the start button.");
+
     new DisplayButtons([
-      {text: "Fighter", action: () => this.createCharacter(0)},
-      {text: "Paladin", action: () =>  this.createCharacter(1)},
-      {text: "Monk", action: () => this.createCharacter(2)},
-      {text: "Berzerker", action: () => this.createCharacter(3)},
-      {text: "Assassin", action: () => this.createCharacter(4)},
+      {text: "Fighter", action: () => {
+        this.createCharacter(0);
+        new Display(`You've created a Fighter.`)
+      }},
+      {text: "Paladin", action: () => {
+        this.createCharacter(1);
+        new Display(`You've created a Paladin.`)
+      }},
+      {text: "Monk", action: () => {
+        this.createCharacter(2);
+        new Display(`You've created a Monk.`)
+      }},
+      {text: "Berzerker", action: () => {
+        this.createCharacter(3);
+        new Display(`You've created a Berzerker.`)
+      }},
+      {text: "Assassin", action: () => {
+        this.createCharacter(4);
+        new Display(`You've created a Assassin.`)
+      }},
       {text: "Start Game", action: () => this.init()}
     ]);
-    }
+    
+  }
 
   createCharacter(int) {
     switch(int) {
