@@ -1,4 +1,4 @@
-class Character {
+export default class Character {
   constructor(hp, dmg, mana, name, spDmg, spHeal, spShield, spBoost, spCost, spName, spDesc) {
     this.hp = hp;
     this.dmg = dmg;
@@ -62,35 +62,35 @@ class Character {
 }
 
 // Dark Vision 5dmg 2shield -20mana
-class Fighter extends Character {
+export class Fighter extends Character {
   constructor( hp = 12, mana = 40, dmg = 4, name = 'Grace', spDmg = 5, spHeal = 0, spShield = 2, spBoost = 0, spCost = 20, spName = 'Dark Vision', spDesc = "Deals 5 dmg, gives 2 shield for the turn, costs 20 mana") {
     super(hp, dmg, mana, name, spDmg, spHeal, spShield, spBoost, spCost, spName, spDesc);
   }
 }
 
 // Healing Lighting 4dmg 5heal -40mana
-class Paladin extends Character {
+export class Paladin extends Character {
   constructor( hp = 16, mana = 160, dmg = 3, name = 'Ulder', spDmg = 4, spHeal = 5, spShield = 0, spBoost = 0, spCost = 40, spName = "Healing Lighting", spDesc = "Deals 4 dmg, restores 5 hp, costs 40 mana. ") {
     super(hp, dmg, mana, name, spDmg, spHeal, spShield, spBoost, spCost, spName, spDesc);
   }
 }
 
 // Heal 8heal -25mana
-class Monk extends Character {
+export class Monk extends Character {
   constructor( hp = 8, mana = 200, dmg = 2, name = 'Moana', spDmg = 0, spHeal = 8, spShield = 0, spBoost = 0, spCost = 25, spName = "Heal", spDesc = "Restores 8 hp, costs 25 mana.") {
     super(hp, dmg, mana, name, spDmg, spHeal, spShield, spBoost, spCost, spName, spDesc);
   }
 }
 
 // Rage dmg = dmg + 1, hp = hp - 1
-class Berzerker extends Character {
+export class Berzerker extends Character {
   constructor( hp = 8, mana = 0, dmg = 4, name = 'Draven', spDmg = 0, spHeal = 0, spShield = 0, spBoost = 1, spCost = 0, spName = "Rage", spDesc = "Increases dmg by one, decreases hp by one.") {
     super(hp, dmg, mana, name, spDmg, spHeal, spShield, spBoost, spCost, spName, spDesc);
   }
 }
 
 // Shadow hit 7dmg, no dmg, -20mana
-class Assassin extends Character {
+export class Assassin extends Character {
   constructor( hp = 6, mana = 20, dmg = 6, name = 'Carl', spDmg = 7, spHeal = 0, spShield = 100, spBoost = 0, spCost = 20, spName = "Shadow hit", spDesc = "Deals 7 dmg, shields from all attacks for 1 turn, costs 20 mana.") {
     super(hp, dmg, mana, name, spDmg, spHeal, spShield, spBoost, spCost, spName, spDesc);
   }

@@ -1,4 +1,4 @@
-class Turn {
+export default class Turn {
   constructor(players) {
     this.init(players);
   }

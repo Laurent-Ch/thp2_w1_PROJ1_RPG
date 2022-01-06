@@ -1,6 +1,8 @@
+import Character, {Fighter,Paladin,Monk,Berzerker,Assassin} from './characters.js';
+
 let players;
 
-function generatePlayers() {
+export default function generatePlayers() {
   let playingCharacterName = window.prompt("Hello! What's your name?");
 
   let possibleClasses = ['Fighter', 'Paladin', 'Monk', 'Berzerker', 'Assassin'];
@@ -43,6 +45,6 @@ function generatePlayers() {
   let npcCharacter = createCharacter(npcClassInt);
   console.log(npcCharacter);
 
-  players = [playingCharacter, npcCharacter];
   console.log(players)
+  return players = [playingCharacter, npcCharacter];
 }

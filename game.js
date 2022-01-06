@@ -1,6 +1,8 @@
+import Turn from './turn.js';
+
 const INCREASING_DISPLAY = 11;
 
-class Game {
+export default class Game {
   constructor(players) {
     this.players = players;
     this.turnLeft = 10;
@@ -20,7 +22,7 @@ class Game {
 
   newTurn() {
     console.log(`Turn ${INCREASING_DISPLAY - this.turnLeft} starts.`);
-    new Turn(players);
+    new Turn(this.players);
     this.turnLeft -= 1;
   }
 }
