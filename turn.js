@@ -11,7 +11,7 @@ export default class Turn {
     new Display(`Choose your next action: 1. Regular attack \n 2. Special attack`);
     new DisplayButtons([
       {text: "Regular", action: () => {
-        this.players[0].dealDamage(this.players[1]);
+        this.players[0].dealDamage(this.players[1], this.players[0].dmg);
         this.enemyRetaliates(this.players[1], this.players[0]);
       }}, 
       {text: "Special", action: () => {
@@ -23,9 +23,9 @@ export default class Turn {
 
   enemyRetaliates(actor ,target) {
     if (actor.hp > 0) {
-      actor.dealDamage(target);
+      actor.dealDamage(target, actor.dmg);
     }
-    console.log(this.game.constructor);
+    this.players.forEach(p => p.shield = 0);
     this.game.gameStillOngoing() ? this.game.newTurn() : this.game.gameOver();
   }
 }

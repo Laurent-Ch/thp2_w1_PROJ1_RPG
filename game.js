@@ -15,7 +15,7 @@ export default class Game {
   generatePlayers() {
     new Display("Welcome, Hero!");
     let playingCharacterName = "Hero";
-    new Display("There are 5 available classes: \n 1. Fighter \n 2. Paladin \n 3. Monk \n 4. Berzerker \n 5. Assassin \n Choose the class you want to play with.`);")
+    new Display("There are 5 available classes: \n 1. Fighter \n 2. Paladin \n 3. Monk \n 4. Berzerker \n 5. Assassin \n Choose the class you want to play with.");
     new DisplayButtons([
       {text: "Fighter", action: () => this.createCharacter(0)},
       {text: "Paladin", action: () =>  this.createCharacter(1)},
