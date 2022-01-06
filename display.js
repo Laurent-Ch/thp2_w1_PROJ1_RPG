@@ -1,8 +1,43 @@
 export default class Display {
+  constructor(text) {
+    this.text = text;
+    this.displayText(this.text);
+  }
+
+  displayText(text) {
+    var newDiv = document.createElement("div");
+    // et lui donne un peu de contenu
+    var newContent = document.createTextNode(text);
+    // ajoute le nœud texte au nouveau div créé
+    newDiv.appendChild(newContent);
+    // ajoute le nouvel élément créé et son contenu dans le DOM
+    var currentDiv = document.getElementById('last_div');
+    document.body.insertBefore(newDiv, currentDiv);
+  }
+}
+    
+export class DisplayButtons {
+  constructor(arrayButtons){
+    arrayButtons.forEach(objectButton => {
+      this.createButton(objectButton); 
+    });
+  }
+
+  createButton(objectButton){
+    let btn = document.createElement("button");
+    btn.innerHTML = objectButton.text;
+    var currentDiv = document.getElementById('last_div');
+    document.body.insertBefore(btn, currentDiv);
+    btn.setAttribute("id", objectButton.text);
+
+    //create event listener
+    btn.addEventListener('click', e => {
+      objectButton.action();
+    })
+  }
+
+  resetId(){
+  }
 }
 
-
-
-// Display stuff on the page
-// Buttons to choose stuff
 

@@ -1,8 +1,15 @@
 import Character, {Fighter,Paladin,Monk,Berzerker,Assassin} from './characters.js';
+import Display, {DisplayButtons} from './display.js'
 
 let players;
 
 export default function generatePlayers() {
+  new Display("test 1");
+  new Display("test 2");
+  new Display("Choisicez votre classe :");
+  
+  let toto = new DisplayButtons([{text:"1", action: action1},{text:"2",action: action2},{text:"3",action: action3}]);
+    
   let playingCharacterName = window.prompt("Hello! What's your name?");
 
   let possibleClasses = ['Fighter', 'Paladin', 'Monk', 'Berzerker', 'Assassin'];
@@ -47,4 +54,14 @@ export default function generatePlayers() {
 
   console.log(players)
   return players = [playingCharacter, npcCharacter];
+}
+
+function action1(){
+  new Display("ACTION 1")
+}
+function action2(){
+  new Display("ACTION 2")
+}
+function action3(){
+  new Display("ACTION 3")
 }
