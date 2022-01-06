@@ -1,3 +1,5 @@
+import Display, {DisplayButtons} from './display.js'
+
 export default class Character {
   constructor(hp, dmg, mana, name, spDmg, spHeal, spShield, spBoost, spCost, spName, spDesc) {
     this.hp = hp;
@@ -20,42 +22,42 @@ export default class Character {
 
   takeDamage(attacker, amount) {
     this.hp -= amount; 
-    console.log(`${attacker.name} deals ${amount} damage to ${this.name} who now has ${this.hp} hp left.`);
+    new Display(`${attacker.name} deals ${amount} damage to ${this.name} who now has ${this.hp} hp left.`);
     if (this.hp <= 0) {
       this.state = "loser";
-      console.log(`${this.name} is dead.`)
+      new Display(`${this.name} is dead.`)
       attacker.mana += 20;
-      console.log(`${attacker.name} gains +20 mana for a new total of ${attacker.mana}.`);
+      new Display(`${attacker.name} gains +20 mana for a new total of ${attacker.mana}.`);
     }
   }
 
   specialAttack(victim) {
     if (this.mana >= this.spCost) {
       this.mana -= this.spCost;
-      console.log(`${this.name} casts ${this.spName}.`); 
+      new Display(`${this.name} casts ${this.spName}.`); 
       if (this.spShield > 0) {
         this.shield += this.spShield;
-        console.log(`${this.name} now has a shield absorbing ${this.spShield} damage out of every attack during this turn.`);
+        new Display(`${this.name} now has a shield absorbing ${this.spShield} damage out of every attack during this turn.`);
       }
       if (this.spDmg > 0) {
-        console.log(`${this.name} deals ${this.spDmg - victim.shield} damage to ${victim.name}.`);
+        new Display(`${this.name} deals ${this.spDmg - victim.shield} damage to ${victim.name}.`);
         victim.takeDamage(this, this.spDmg);
       }
       if (this.spHeal > 0) {
         this.hp += this.spHeal;
-        console.log(`${this.name} gets ${this.spHeal} hp back.`);
+        new Display(`${this.name} gets ${this.spHeal} hp back.`);
       }
       if (this.spBoost > 0) {
         this.dmg += 1;
-        console.log(`${this.name}'s regular attack now deals ${this.spBoost} additional damage.`);
+        new Display(`${this.name}'s regular attack now deals ${this.spBoost} additional damage.`);
         if (this.hp > 1) {
           this.hp -= 1;
-          console.log(`${this.name}'s rage reduces hp by 1.`);
+          new Display(`${this.name}'s rage reduces hp by 1.`);
         }
       }
     }
     else {
-      console.log(`You don't have enough mana, so you use your regular attack`);
+      new Display(`You don't have enough mana, so you use your regular attack`);
       this.dealDamage(victim);
     }
   }

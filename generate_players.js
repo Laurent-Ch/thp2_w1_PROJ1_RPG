@@ -4,13 +4,12 @@ import Display, {DisplayButtons} from './display.js'
 let players;
 
 export default function generatePlayers() {
-  new Display("test 1");
-  new Display("test 2");
-  new Display("Choisicez votre classe :");
   
+  // Test Snippet 1
   let toto = new DisplayButtons([{text:"1", action: action1},{text:"2",action: action2},{text:"3",action: action3}]);
-    
-  let playingCharacterName = window.prompt("Hello! What's your name?");
+  
+  new Display("Welcome, Hero!");
+  let playingCharacterName = "Hero";
 
   let possibleClasses = ['Fighter', 'Paladin', 'Monk', 'Berzerker', 'Assassin'];
   let possibleClassesInt = [1, 2, 3, 4, 5];
@@ -22,7 +21,7 @@ export default function generatePlayers() {
   }
 
   let playingCharacterClass = possibleClasses[playingCharacterClassInt - 1];
-  console.log(`${playingCharacterName}, you'll be playing a(n) ${playingCharacterClass} against one random opponent.`);
+  new Display(`${playingCharacterName}, you'll be playing a(n) ${playingCharacterClass} against one random opponent.`);
 
   function createCharacter(classInt) {
     switch(classInt) {
@@ -46,16 +45,14 @@ export default function generatePlayers() {
 
   let playingCharacter = createCharacter(playingCharacterClassInt);
   playingCharacter.name = playingCharacterName;
-  console.log(playingCharacter);
 
   let npcClassInt = Math.floor(Math.random() * 5 + 1);
   let npcCharacter = createCharacter(npcClassInt);
-  console.log(npcCharacter);
 
-  console.log(players)
   return players = [playingCharacter, npcCharacter];
 }
 
+// Test Snippet 2
 function action1(){
   new Display("ACTION 1")
 }

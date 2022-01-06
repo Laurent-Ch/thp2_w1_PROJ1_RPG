@@ -1,3 +1,4 @@
+import Display, {DisplayButtons} from './display.js'
 export default class Turn {
   constructor(players) {
     this.init(players);
@@ -7,7 +8,7 @@ export default class Turn {
     let seeStats = window.prompt("Press S to see the players' stats or any other key to continue.");
     seeStats = seeStats.toUpperCase();
     if (seeStats === "S") {
-      players.map(p => console.log(`${p.name}: ${p.hp} hp, ${p.mana} mana.`));
+      players.map(p => new Display(`${p.name}: ${p.hp} hp, ${p.mana} mana.`));
     }
     let playerChoice = 0;
     let possibleActions = [1, 2];
@@ -24,6 +25,6 @@ export default class Turn {
     if (players[1].hp > 0) {
       players[1].dealDamage(players[0]);
     }
-    console.log("\n");
+    new Display("\n");
   }
 }
