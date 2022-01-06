@@ -5,12 +5,13 @@ export default class Display {
   }
 
   displayText(text) {
+    // Create a new empty div
     var newDiv = document.createElement("div");
-    // et lui donne un peu de contenu
+    // Create new content
     var newContent = document.createTextNode(text);
-    // ajoute le nœud texte au nouveau div créé
+    // Link content to div
     newDiv.appendChild(newContent);
-    // ajoute le nouvel élément créé et son contenu dans le DOM
+    // Insert new div above target element of DOM
     var currentDiv = document.getElementById('last_div');
     document.body.insertBefore(newDiv, currentDiv);
   }

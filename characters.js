@@ -54,7 +54,7 @@ export default class Character {
       }
       if (this.spBoost > 0) {
         this.dmg += 1;
-        new Display(`${this.name}'s regular attack now deals ${this.spBoost} additional damage.`);
+        new Display(`${this.name}'s regular attack now deals 1 additional damage.`);
         if (this.hp > 1) {
           this.hp -= 1;
           new Display(`${this.name}'s rage reduces his hp by 1.`);
